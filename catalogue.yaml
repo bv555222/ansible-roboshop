@@ -16,7 +16,7 @@
     - name: create application user
       ansible.builtin.user:
         name: roboshop
-        system: yes
+        system: true
         home: /app
         shell: /sbin/nologin
 
@@ -46,7 +46,7 @@
         dest: /etc/systemd/system/catalogue.service
 
     - name: daemon reload
-      ansible.builtin.systemd:
+      ansible.builtin.systemd_service:
         daemon_reload: yes
 
     - name : start catalogue service
